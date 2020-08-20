@@ -1,6 +1,9 @@
 #!/user/bin/env python
 import subprocess
 
-subprocess.call("ifconfig eth0 down", shell=True)
-subprocess.call("ifconfig eth0 hw ether AA:BB:CC:DD:EE:FF", shell=True)
-subprocess.call("ifconfig eth0 up", shell=True)
+iface = input("Netwok Interface>")
+addr = input("New MAC>")
+
+subprocess.call("ifconfig " + iface + " down", shell=True)
+subprocess.call("ifconfig " + iface + " hw ether " + addr, shell=True)
+subprocess.call("ifconfig " + iface + " up", shell=True)
